@@ -1,5 +1,6 @@
 package com.buildx.ide.ui.settings
 
+import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Toast
@@ -9,11 +10,10 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.buildx.ide.R
 import com.buildx.ide.databinding.ActivitySettingsBinding
 import kotlinx.coroutines.*
 
-val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class SettingsActivity : AppCompatActivity() {
     
