@@ -3,6 +3,7 @@ package com.buildx.ide.ui.settings
 import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.datastore.core.DataStore
@@ -10,14 +11,19 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.buildx.ide.databinding.ActivitySettingsBinding
+import com.buildx.ide.R
+import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.*
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class SettingsActivity : AppCompatActivity() {
     
-    private lateinit var binding: ActivitySettingsBinding
+    private lateinit var editGitHubToken: TextInputEditText
+    private lateinit var editBuildType: TextInputEditText
+    private lateinit var editTheme: TextInputEditText
+    private lateinit var buttonSave: Button
+    private lateinit var buttonTestToken: Button
     private val activityScope = MainScope()
     
     companion object {
@@ -28,38 +34,40 @@ class SettingsActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySettingsBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_settings)
         
-        setupToolbar()
-        loadSettings()
-        setupListeners()
-    }
-    
-    private fun setupToolbar() {
-        setSupportActionBar(binding.toolbar)
+        editGitHubToken = findViewById(R.id.editGitHubToken)
+        editBuildType = findViewById(R.id.editBuildType)
+        editTheme = findViewById(R.id.editTheme)
+        buttonSave = findViewById(R.id.buttonSave)
+        buttonTestToken = findViewById(R.id.buttonTestToken)
+        
+        setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.apply {
             setDisplayHomeAsUpEnabled(true)
             title = "Settings"
         }
+        
+        loadSettings()
+        setupListeners()
     }
     
     private fun loadSettings() {
         activityScope.launch {
             dataStore.data.collect { preferences ->
-                binding.editGitHubToken.setText(preferences[GITHUB_TOKEN_KEY] ?: "")
-                binding.editBuildType.setText(preferences[DEFAULT_BUILD_TYPE_KEY] ?: "debug")
-                binding.editTheme.setText(preferences[EDITOR_THEME_KEY] ?: "dark")
+                editGitHubToken.setText(preferences[GITHUB_TOKEN_KEY] ?: "")
+                editBuildType.setText(preferences[DEFAULT_BUILD_TYPE_KEY] ?: "debug")
+                editTheme.setText(preferences[EDITOR_THEME_KEY] ?: "dark")
             }
         }
     }
     
     private fun setupListeners() {
-        binding.buttonSave.setOnClickListener {
+        buttonSave.setOnClickListener {
             saveSettings()
         }
         
-        binding.buttonTestToken.setOnClickListener {
+        buttonTestToken.setOnClickListener {
             testGitHubToken()
         }
     }
@@ -67,9 +75,9 @@ class SettingsActivity : AppCompatActivity() {
     private fun saveSettings() {
         activityScope.launch {
             dataStore.edit { preferences ->
-                preferences[GITHUB_TOKEN_KEY] = binding.editGitHubToken.text.toString()
-                preferences[DEFAULT_BUILD_TYPE_KEY] = binding.editBuildType.text.toString()
-                preferences[EDITOR_THEME_KEY] = binding.editTheme.text.toString()
+                preferences[GITHUB_TOKEN_KEY] = editGitHubToken.text.toString()
+                preferences[DEFAULT_BUILD_TYPE_KEY] = editBuildType.text.toString()
+                preferences[EDITOR_THEME_KEY] = editTheme.text.toString()
             }
             Toast.makeText(this@SettingsActivity, "Settings saved!", Toast.LENGTH_SHORT).show()
         }

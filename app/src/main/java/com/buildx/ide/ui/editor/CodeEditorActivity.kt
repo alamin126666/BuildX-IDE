@@ -3,23 +3,24 @@ package com.buildx.ide.ui.editor
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.buildx.ide.R
-import com.buildx.ide.databinding.ActivityCodeEditorBinding
 import com.buildx.ide.model.EditorSettings
 import com.buildx.ide.model.EditorTheme
 
 class CodeEditorActivity : AppCompatActivity() {
     
-    private lateinit var binding: ActivityCodeEditorBinding
+    private lateinit var editCode: EditText
     private var currentFilePath: String = ""
     private var isModified = false
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityCodeEditorBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_code_editor)
+        
+        editCode = findViewById(R.id.editCode)
         
         setupToolbar()
         setupEditor()
@@ -27,7 +28,7 @@ class CodeEditorActivity : AppCompatActivity() {
     }
     
     private fun setupToolbar() {
-        setSupportActionBar(binding.toolbar)
+        setSupportActionBar(findViewById(R.id.toolbar))
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_back)
     }
@@ -92,8 +93,8 @@ class CodeEditorActivity : AppCompatActivity() {
         // Load file content
         try {
             val content = readFileContent(currentFilePath)
-            // binding.codeEditor.setText(content)
-            binding.toolbar.title = currentFilePath.split("/").last()
+            editCode.setText(content)
+            supportActionBar?.title = currentFilePath.split("/").last()
         } catch (e: Exception) {
             Toast.makeText(this, "Failed to load file: ${e.message}", Toast.LENGTH_LONG).show()
         }

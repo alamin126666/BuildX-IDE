@@ -13,7 +13,6 @@ interface GitHubActionsAPI {
         @Path("repo") repo: String,
         @Path("workflow_id") workflowId: String,
         @Header("Authorization") token: String,
-        @Header("Accept") accept: String = "application/vnd.github.v3+json",
         @Body request: WorkflowDispatchRequest
     ): Response<Unit>
     

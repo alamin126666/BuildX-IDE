@@ -13,7 +13,7 @@ data class BuildConfig(
     val buildType: BuildType = BuildType.DEBUG,
     val packageName: String = "",
     val minSdk: Int = 26,
-    targetSdk: Int = 34,
+    val targetSdk: Int = 34,
     val compileSdk: Int = 34,
     val versionCode: Int = 1,
     val versionName: String = "1.0.0",
