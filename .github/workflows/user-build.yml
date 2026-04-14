@@ -1,0 +1,61 @@
+name: Build User Project
+
+on:
+  workflow_dispatch:
+    inputs:
+      project_type:
+        description: 'Project Type'
+        required: true
+        default: 'android'
+        type: choice
+        options:
+        - android
+        - kotlin
+        - java
+      build_type:
+        description: 'Build Type'
+        required: true
+        default: 'debug'
+        type: choice
+        options:
+        - debug
+        - release
+      project_path:
+        description: 'Project Path'
+        required: true
+        type: string
+
+jobs:
+  build-project:
+    name: Build User Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout user repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.inputs.project_path }}
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Build project
+        run: |
+          if [ "${{ github.event.inputs.build_type }}" == "release" ]; then
+            ./gradlew assembleRelease
+          else
+            ./gradlew assembleDebug
+          fi
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: user-build-output
+          path: |
+            **/build/outputs/apk/**/*.apk
+            **/app/build/outputs/**/*.apk

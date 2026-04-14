@@ -1,0 +1,95 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+release/
+
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file
+local.properties
+
+# IntelliJ
+*.iml
+.idea/
+*.ipr
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Android Studio Navigation editor temp files
+.navigation/
+
+# Android Studio Captures
+captures/
+
+# Keystore files
+*.jks
+*.keystore
+*.keystore.temp
+
+# Google Services (e.g. Firebase or Firestore)
+google-services.json
+
+# External native build folder generated in Android Studio 2.2 and later
+.externalNativeBuild
+.cxx/
+
+# Version Control
+.svn/
+
+# Buck
+.buckconfig/
+buck-out/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/README.md
+
+# Product Specific
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+
+# Other
+*.orig
+.DS_Store
+*.swp
+*~
+
+# Coverage
+coverage/
+*.lcov
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp

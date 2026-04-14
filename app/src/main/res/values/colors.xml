@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary colors -->
+    <color name="primary">#1976D2</color>
+    <color name="primary_dark">#1565C0</color>
+    <color name="primary_light">#42A5F5</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_variant">#0D47A1</color>
+
+    <!-- Secondary colors -->
+    <color name="secondary">#FF5722</color>
+    <color name="secondary_dark">#E64A19</color>
+    <color name="on_secondary">#FFFFFF</color>
+
+    <!-- Surface colors -->
+    <color name="surface">#1E1E1E</color>
+    <color name="on_surface">#FFFFFF</color>
+    <color name="background">#121212</color>
+    <color name="on_background">#FFFFFF</color>
+
+    <!-- Status colors -->
+    <color name="success">#4CAF50</color>
+    <color name="error">#F44336</color>
+    <color name="warning">#FF9800</color>
+    <color name="info">#2196F3</color>
+
+    <!-- Editor colors -->
+    <color name="editor_background">#1E1E1E</color>
+    <color name="editor_foreground">#D4D4D4</color>
+    <color name="editor_line_highlight">#2D2D30</color>
+    <color name="editor_selection">#264F78</color>
+    <color name="editor_cursor">#AEAFAD</color>
+    <color name="editor_line_number">#858585</color>
+    <color name="editor_indent_guide">#404040</color>
+
+    <!-- Syntax highlighting colors (Dark Theme) -->
+    <color name="syntax_keyword">#569CD6</color>
+    <color name="syntax_string">#CE9178</color>
+    <color name="syntax_number">#B5CEA8</color>
+    <color name="syntax_comment">#6A9955</color>
+    <color name="syntax_annotation">#C586C0</color>
+    <color name="syntax_function">#DCDCAA</color>
+    <color name="syntax_type">#4EC9B0</color>
+    <color name="syntax_variable">#9CDCFE</color>
+    <color name="syntax_operator">#D4D4D4</color>
+    <color name="syntax_punctuation">#D4D4D4</color>
+
+    <!-- Card colors -->
+    <color name="card_background">#2D2D30</color>
+    <color name="card_elevation">#000000</color>
+
+    <!-- Navigation drawer colors -->
+    <color name="nav_drawer_background">#1E1E1E</color>
+    <color name="nav_drawer_item">#D4D4D4</color>
+    <color name="nav_drawer_item_ripple">#404040</color>
+
+    <!-- Toolbar colors -->
+    <color name="toolbar_background">#1976D2</color>
+    <color name="toolbar_title">#FFFFFF</color>
+    <color name="toolbar_icon">#FFFFFF</color>
+
+    <!-- FAB colors -->
+    <color name="fab_background">#FF5722</color>
+    <color name="fab_icon">#FFFFFF</color>
+
+    <!-- Divider color -->
+    <color name="divider">#404040</color>
+
+    <!-- Transparent colors -->
+    <color name="transparent">#00000000</color>
+    <color name="semi_transparent_black">#80000000</color>
+    <color name="semi_transparent_white">#80FFFFFF</color>
+
+</resources>
