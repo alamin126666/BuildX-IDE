@@ -11,7 +11,7 @@ import com.buildx.ide.R
 import com.buildx.ide.model.BuildOutput
 import com.buildx.ide.model.BuildStatus
 import com.buildx.ide.repository.GitHubRepository
-import com.buildx.ide.ui.build.BuildOutputActivity
+import com.buildx.ide.ui.buildoutput.BuildOutputActivity
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.collectLatest
 

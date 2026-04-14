@@ -15,7 +15,7 @@ import com.buildx.ide.model.BuildOutput
 import com.buildx.ide.model.BuildStatus
 import com.buildx.ide.repository.GitHubRepository
 import com.buildx.ide.ui.adapter.RecentProjectsAdapter
-import com.buildx.ide.ui.build.BuildOutputActivity
+import com.buildx.ide.ui.buildoutput.BuildOutputActivity
 import com.buildx.ide.ui.editor.CodeEditorActivity
 import com.buildx.ide.ui.settings.SettingsActivity
 import kotlinx.coroutines.*
