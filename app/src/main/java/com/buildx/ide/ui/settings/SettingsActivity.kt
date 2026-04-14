@@ -84,7 +84,7 @@ class SettingsActivity : AppCompatActivity() {
     }
     
     private fun testGitHubToken() {
-        val token = binding.editGitHubToken.text.toString()
+        val token = editGitHubToken.text.toString()
         if (token.isEmpty()) {
             Toast.makeText(this, "Please enter a token", Toast.LENGTH_SHORT).show()
             return
